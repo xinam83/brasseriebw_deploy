@@ -7,13 +7,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Render utilise process.env.PORT
+const PORT = process.env.PORT || 3000; // Render donne son propre PORT
 
-// Middleware pour parser le JSON
+// Middleware JSON
 app.use(express.json());
 
-// Servir les fichiers statiques depuis le dossier 'site'
-app.use(express.static(path.join(__dirname, "site")));
+// Servir les fichiers statiques depuis le dossier courant (site/)
+app.use(express.static(__dirname));
 
 // Endpoint pour mettre à jour menu.json
 app.post("/update-menu", (req, res) => {
@@ -24,22 +24,24 @@ app.post("/update-menu", (req, res) => {
     (err) => {
       if (err) {
         console.error("Erreur d'écriture:", err);
-        return res.status(500).json({ message: "Erreur lors de la sauvegarde." });
+        return res
+          .status(500)
+          .json({ message: "Erreur lors de la sauvegarde du menu." });
       }
       res.json({ message: "Menu mis à jour avec succès !" });
     }
   );
 });
 
-// Sécurité basique : authentification admin (exemple temporaire)
+// Sécurité basique : middleware admin
 app.use("/admin", (req, res, next) => {
-  // Ici tu pourras ajouter authentification JWT ou session
+  // ⚠️ A compléter plus tard (auth)
   next();
 });
 
-// Route par défaut si aucune route ne correspond
+// Route fallback pour SPA
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "site", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.listen(PORT, () => {
