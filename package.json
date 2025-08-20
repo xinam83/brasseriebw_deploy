@@ -1,0 +1,12 @@
+{
+  "name": "restaurant-web",
+  "version": "1.0.0",
+  "description": "Serveur Node.js pour le site de la brasserie",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

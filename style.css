@@ -1,0 +1,90 @@
+/* Reset de base */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fafafa;
+  color: #333;
+  text-align: center;
+}
+
+/* Header */
+header {
+  background: #333;
+  color: white;
+  padding: 15px 0;
+  position: relative;
+}
+
+/* Logo */
+header img.logo {
+  display: block;
+  max-height: 60px;
+  width: auto;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Titre */
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Menu */
+nav {
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ffcc00;
+}
+
+/* Section plat du jour */
+.plat-jour {
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+.plat-jour img.plat {
+  max-width: 100%;
+  height: auto;
+}
+
+.nom-plat {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.prix {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  padding: 15px 0;
+  margin-top: 30px;
+}
