@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Brasserie BW</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/logo.png" type="image/x-icon">
+</head>
+<body>
+
+<!-- Header -->
+<header style="background-color:black; color:white; display:flex; align-items:center; padding:10px;">
+  <img src="images/logo.png" alt="Logo Brasserie BW" class="logo" style="height:60px; margin-right:20px;">
+  <h1 class="site-title" style="flex-grow:1; text-align:left;">Brasserie BW</h1>
+  <nav>
+    <ul style="list-style:none; display:flex; gap:20px; margin:0; padding:0;">
+      <li><a href="index.html" style="color:white; text-decoration:none;">Accueil</a></li>
+      <li><a href="menu.html" style="color:white; text-decoration:none;">Menu</a></li>
+      <li><a href="reservation.html" style="color:white; text-decoration:none;">Réservation</a></li>
+      <li><a href="galerie.html" style="color:white; text-decoration:none;">Galerie</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Section Menu -->
+<main style="padding:20px; background-color:white; color:black;">
+  <h2>Notre Menu</h2>
+  <div id="menu">
+    <!-- Les catégories et plats seront injectés ici par menu.js -->
+  </div>
+</main>
+
+<!-- Footer -->
+<footer style="background-color:black; color:white; text-align:center; padding:10px; margin-top:20px;">
+  &copy; 2025 Brasserie BW - Tous droits réservés
+</footer>
+
+<script src="js/menu.js"></script>
+
+</body>
+</html>

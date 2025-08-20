@@ -1,0 +1,121 @@
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #8b0000;
+  color: white;
+  padding: 10px 20px;
+}
+
+header .logo {
+  max-width: 150px;   /* Taille fixe du logo */
+  height: auto;
+}
+
+header .site-title {
+  font-size: 1.8em;
+  margin-left: 15px;
+  flex-grow: 1;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Section Plat du jour */
+.plat-jour {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.plat-jour img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.plat-jour .details {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.plat-jour h2 {
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+.plat-jour p {
+  margin-bottom: 8px;
+}
+
+/* Menu catégories */
+.menu-category {
+  background: white;
+  margin: 20px auto;
+  padding: 15px;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.menu-category h2 {
+  border-bottom: 2px solid #8b0000;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  color: #8b0000;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.menu-item.out-of-stock {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+/* Footer */
+footer {
+  background: #8b0000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+}

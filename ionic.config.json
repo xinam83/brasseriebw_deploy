@@ -1,8 +1,0 @@
-{
-  "name": "Brasserie BW",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react-vite",
-  "id": "57b188cb"
-}

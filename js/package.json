@@ -1,0 +1,28 @@
+{
+  "name": "brasseriebw_deploy",
+  "version": "1.0.0",
+  "description": "Site web de la brasserie BW",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xinam83/brasseriebw_deploy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xinam83/brasseriebw_deploy/issues"
+  },
+  "homepage": "https://github.com/xinam83/brasseriebw_deploy#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

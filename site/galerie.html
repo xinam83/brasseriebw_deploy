@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie - Brasserie BW</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/logo.png" type="image/x-icon">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; }
+    header { display: flex; align-items: center; justify-content: space-between; background:#f8f8f8; padding:10px 20px; }
+    .logo { height:60px; }
+    header h1 { margin:0; flex:1; text-align:center; font-size:24px; }
+    nav ul { list-style:none; margin:0; padding:0; display:flex; gap:20px; }
+    nav ul li { display:inline; }
+    nav ul li a { text-decoration:none; color:#333; font-weight:bold; }
+    main { padding:20px; }
+    .gallery { display:flex; flex-wrap:wrap; gap:15px; justify-content:center; }
+    .gallery img { width:250px; height:180px; object-fit:cover; border-radius:5px; transition: transform 0.3s; cursor:pointer; }
+    .gallery img:hover { transform: scale(1.05); }
+    footer { background:#333; color:#fff; text-align:center; padding:10px; margin-top:20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Logo Brasserie BW" class="logo">
+  <h1>Brasserie BW</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="reservation.html">Réservation</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2 style="text-align:center; margin-bottom:20px;">Notre Galerie</h2>
+  <div class="gallery">
+    <img src="images/photo1.jpg" alt="Photo 1">
+    <img src="images/photo2.jpg" alt="Photo 2">
+    <img src="images/photo3.jpg" alt="Photo 3">
+    <img src="images/photo4.jpg" alt="Photo 4">
+    <img src="images/photo5.jpg" alt="Photo 5">
+    <!-- Rajoute autant d'images que nécessaire -->
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Brasserie BW - Tous droits réservés
+</footer>
+
+</body>
+</html>

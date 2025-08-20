@@ -1,0 +1,15 @@
+<h1>Inscription Admin</h1>
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Mot de passe">
+<button id="reg-btn">S'inscrire</button>
+<p id="msg"></p>
+
+<script>
+document.getElementById("reg-btn").onclick = () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  fetch("/register", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({email,password})})
+  .then(res=>res.json())
+  .then(data=>{ document.getElementById("msg").textContent=data.message; });
+};
+</script>

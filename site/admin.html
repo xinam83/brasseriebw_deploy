@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Brasserie BW</title>
+</head>
+<body>
+  <h1>Admin - Menu</h1>
+  <form id="menuForm">
+    <textarea id="menuData" rows="20" cols="50"></textarea><br>
+    <button type="submit">Sauvegarder</button>
+  </form>
+
+  <script>
+    async function loadMenu() {
+      const res = await fetch("/menu.json");
+      const data = await res.json();
+      document.getElementById("menuData").value = JSON.stringify(data, null, 2);
+    }
+
+    document.getElementById("menuForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const newMenu = JSON.parse(document.getElementById("menuData").value);
+      const res = await fetch("/update-menu", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newMenu)
+      });
+      const result = await res.json();
+      alert(result.message);
+    });
+
+    loadMenu();
+  </script>
+</body>
+</html>

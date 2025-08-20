@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservation - Brasserie BW</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+</head>
+<body>
+
+<header>
+  <img src="images/logo.jpg" alt="Logo Brasserie BW" class="logo">
+  <h1 class="site-title">Brasserie BW</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="reservation.html">Réservation</a></li>
+      <li><a href="menu-admin.html">Admin</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="reservation-section">
+  <h2>Réserver une table</h2>
+  <form id="reservation-form">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="date">Date :</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="heure">Heure :</label>
+    <input type="time" id="heure" name="heure" required>
+
+    <label for="personnes">Nombre de personnes :</label>
+    <input type="number" id="personnes" name="personnes" min="1" required>
+
+    <button type="submit">Réserver</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 Brasserie BW - Tous droits réservés
+</footer>
+
+<script src="js/reservation.js"></script>
+
+</body>
+</html>

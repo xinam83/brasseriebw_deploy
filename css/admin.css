@@ -1,0 +1,56 @@
+/* admin.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    color: #b33f3f;
+}
+
+.menu-category {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.menu-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.menu-item input[type="number"],
+.menu-item input[type="text"] {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.menu-item label {
+    font-size: 0.9em;
+}
+
+.out-of-stock {
+    color: red;
+    font-weight: bold;
+}
+
+button {
+    margin-top: 10px;
+    padding: 7px 12px;
+    background-color: #b33f3f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #8c2e2e;
+}
