@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "fr": {
     "nav": {
@@ -50,57 +49,4 @@
       "submit": "Submit"
     }
   }
-=======
-{
-  "fr": {
-    "nav": {
-      "home": "ACCUEIL",
-      "menu": "MENU",
-      "reservation": "RÉSERVATION",
-      "gallery": "GALERIE",
-      "agenda": "AGENDA",
-      "contact": "CONTACT"
-    },
-    "hero": {
-      "title": "Brasserie BW",
-      "datetime": "DATE – HEURE",
-      "platTitle": "PLAT DU JOUR",
-      "platPrice": "À 12,90 €",
-      "platDesc": "Du lundi au jeudi midi"
-    },
-    "reservation": {
-      "title": "Réservez votre table",
-      "name": "Nom",
-      "email": "Email",
-      "date": "Date",
-      "time": "Heure",
-      "submit": "Envoyer"
-    }
-  },
-  "en": {
-    "nav": {
-      "home": "HOME",
-      "menu": "MENU",
-      "reservation": "RESERVATION",
-      "gallery": "GALLERY",
-      "agenda": "AGENDA",
-      "contact": "CONTACT"
-    },
-    "hero": {
-      "title": "Brasserie BW",
-      "datetime": "DATE – TIME",
-      "platTitle": "DISH OF THE DAY",
-      "platPrice": "€12.90",
-      "platDesc": "From Monday to Thursday noon"
-    },
-    "reservation": {
-      "title": "Book your table",
-      "name": "Name",
-      "email": "Email",
-      "date": "Date",
-      "time": "Time",
-      "submit": "Submit"
-    }
-  }
->>>>>>> 7d948e062535f1278e321054cc1455b5d72c4924
 }
