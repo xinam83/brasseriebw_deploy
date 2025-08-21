@@ -17,6 +17,45 @@
       <li><a href="#accueil">ACCUEIL</a></li>
       <li><a href="#menu">MENU</a></li>
       <li><a href="#reservation">RESERVATION</a></li>
-      <li><a href="#galerie">GALERIE
-	  <li><a href="#events">AGENDA
-	  <li><a href="#contact">CONTACT
+      <li><a href="#galerie">GALERIE</a></li>
+      <li><a href="#events">AGENDA</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Brasserie BW</h1>
+    <div id="datetime"></div>
+    <div id="closed-message"></div>
+
+    <div class="plat-du-jour">
+      <a href="#menu" class="plat-button">
+        <strong>PLAT DU JOUR</strong><br>
+        À <br>
+        12,90 €<br>
+        Du lundi au jeudi midi
+      </a>
+    </div>
+  </section>
+
+  <script>
+    // Affichage de la date et l'heure
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const date = now.toLocaleDateString('fr-FR', options);
+      const time = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('datetime').innerHTML = `${date} – ${time}`;
+
+      // Message si la brasserie est fermée (ex: après 22h ou avant 8h)
+      const hour = now.getHours();
+      const closed = hour < 8 || hour >= 22;
+      document.getElementById('closed-message').innerHTML = closed ? "⛔ La brasserie est actuellement fermée." : "";
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+</body>
+</html>
