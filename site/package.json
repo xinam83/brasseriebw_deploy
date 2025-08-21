@@ -1,12 +1,13 @@
 {
-  "name": "restaurant-web",
+  "name": "brasseriebw_deploy",
   "version": "1.0.0",
-  "description": "Serveur Node.js pour le site de la brasserie",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "body-parser": "^1.20.2"
   }
 }
