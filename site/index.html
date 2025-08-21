@@ -2,24 +2,12 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brasserie BW</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <h1>Bienvenue à Brasserie BW</h1>
-  <div id="menu"></div>
-  <a href="cart.html">Voir mon panier</a>
-  <script>
-    const token = localStorage.getItem("token");
-    if (!token) window.location.href = "login.html";
-
-    fetch("/menu", { headers: { "Authorization": `Bearer ${token}` } })
-      .then(res => res.json())
-      .then(menu => {
-        const div = document.getElementById("menu");
-        div.innerHTML = menu.map(item => `<div>${item.name} - ${item.price}€</div>`).join("");
-      });
-  </script>
+  <h1>Bienvenue à la Brasserie BW</h1>
+  <p>Notre menu est disponible sur la page admin.</p>
+  <a href="login.html">Connexion Admin</a>
 </body>
 </html>

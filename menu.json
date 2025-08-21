@@ -1,7 +1,244 @@
 {
   "plats": [
-    { "nom": "Bière Blonde", "prix": 5 },
-    { "nom": "Bière Brune", "prix": 5.5 },
-    { "nom": "Bière Blanche", "prix": 5 }
+    {
+      "nom": "Plat du jour",
+      "prix": 11.9,
+      "prix_apres_17h": 11.9,
+      "prix_midi": 11.9,
+      "prix_soir": 13.9,
+      "prix_happyhour": 13.9,
+      "prix_soiree": 13.9,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Tartare de boeuf",
+      "prix": 17,
+      "prix_apres_17h": 19,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Tartare italien",
+      "prix": 18,
+      "prix_apres_17h": 20,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Andouillette de Troyes 5a",
+      "prix": 19,
+      "prix_apres_17h": 21,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Pièce de boeuf (~300g)",
+      "prix": 19,
+      "prix_apres_17h": 21,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Magret de canard (entier)",
+      "prix": 22,
+      "prix_apres_17h": 24,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    }
+  ],
+
+  "desserts": [
+    {
+      "nom": "Glaces 1 boule",
+      "prix": 2.5,
+      "prix_midi": 2.5,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Glaces 2 boules",
+      "prix": 4,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Glaces 3 boules",
+      "prix": 6,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Desserts avec alcool",
+      "prix": 7,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Coupes glacées",
+      "prix": 6,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Assiette de fromages",
+      "prix": 8,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    }
+  ],
+
+  "boissons": [
+    {
+      "nom": "Soda",
+      "prix_midi": 3.5,
+      "prix_soir": 4,
+      "prix_happyhour": 3,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "mention": "L'abus d'alcool est dangereux pour la santé. À consommer avec modération.",
+      "rupture": false
+    },
+    {
+      "nom": "Jus de fruit",
+      "prix_midi": 3,
+      "prix_soir": 3.5,
+      "prix_happyhour": 3,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Cocktail sans alcool",
+      "prix_midi": 6,
+      "prix_soir": 7,
+      "prix_happyhour": 6,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Bière Blonde 25cl",
+      "prix_midi": 3.5,
+      "prix_soir": 4.5,
+      "prix_happyhour": 3,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Bière Blonde 50cl",
+      "prix_midi": 5.5,
+      "prix_soir": 7,
+      "prix_happyhour": 5,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Desperado",
+      "prix_midi": 5,
+      "prix_soir": 7,
+      "prix_happyhour": 5,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Get 27",
+      "prix_midi": 6,
+      "prix_soir": 7,
+      "prix_happyhour": 6,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Morgan blanc",
+      "prix_midi": 6,
+      "prix_soir": 7,
+      "prix_happyhour": 6,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    }
+  ],
+
+  "planches": [
+    {
+      "nom": "Planches mixtes",
+      "prix_grande": 16,
+      "prix_petite": 12,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Planches de fromages",
+      "prix_grande": 16,
+      "prix_petite": 12,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    },
+    {
+      "nom": "Planches de charcuteries",
+      "prix_grande": 16,
+      "prix_petite": 12,
+      "disponibilite": ["sur_place"],
+      "rupture": false
+    }
+  ],
+
+  "salades": [
+    {
+      "nom": "Tomate mozza jambon cru",
+      "prix": 16,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Salade de chèvre chaud",
+      "prix": 16,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Salade César",
+      "prix": 17,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    }
+  ],
+
+  "burgers": [
+    {
+      "nom": "Burger poulet/chèvre",
+      "prix": 17,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Rösti burger",
+      "prix": 18,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    },
+    {
+      "nom": "Burger du chef",
+      "prix": 19,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    }
+  ],
+
+  "poissons": [
+    {
+      "nom": "Fish & chips",
+      "prix": 17,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "rupture": false
+    }
+  ],
+
+  "enfants": [
+    {
+      "nom": "Menu enfant",
+      "prix": 10,
+      "disponibilite": ["sur_place", "livraison", "clic_collect"],
+      "age_max": 12,
+      "rupture": false
+    }
   ]
 }
+
