@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Galerie – Brasserie BW</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="gallery-title">Galerie</h1>
+  <div id="gallery-container"></div>
+  <script>
+    fetch("gallery.json")
+      .then(res => res.json())
+      .then(images => {
+        const container = document.getElementById("gallery-container");
+        images.forEach(src => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = "Photo";
+          img.className = "gallery-img";
+          container.appendChild(img);
+        });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panier Brasserie BW</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Votre Panier</h1>
+  <div id="menu"></div>
+  <div id="cart"></div>
+  <button id="order-btn">Passer la commande</button>
+  <p id="msg"></p>
+
+  <script>
+    const token = localStorage.getItem("token");
+    if(!token) { window.location.href = "login.html"; }
+
+    let cart = [];
+
+    // Charger le menu
+    fetch("/menu", { headers: { "Authorization": `Bearer ${token}` } })
+      .then(res => res.json())
+      .then(menu => {
+        const div = document.getElementById("menu");
+        div.innerHTML = menu.map(item => `
+          <div class="menu-item">
+            <h3>${item.name} - ${item.price}€</h3>
+            <input type="number" min="0" value="0" id="qty-${item.name}">
+          </div>
+        `).join("");
+      });
+
+    document.getElementById("order-btn").addEventListener("click", () => {
+      const items = Array.from(document.querySelectorAll("[id^='qty-']"))
+        .map(i => ({ name: i.id.replace("qty-", ""), quantity: parseInt(i.value) }))
+        .filter(i => i.quantity > 0);
+
+      fetch("/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+        body: JSON.stringify({ items })
+      })
+      .then(res => res.json())
+      .then(data => { document.getElementById("msg").textContent = `${data.message} (Total: ${data.total}€)` })
+      .catch(err => console.error(err));
+    });
+  </script>
+</body>
+</html>
