@@ -92,4 +92,3 @@ function printList(title, list) {
 
 // Charger le menu au démarrage
 window.addEventListener('DOMContentLoaded', loadMenu);
-

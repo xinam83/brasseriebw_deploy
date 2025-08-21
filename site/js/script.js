@@ -1,83 +1,46 @@
-let token = null;
-let cart = [];
+import menuData from './menu.json' assert { type: 'json' };
 
-// Login admin
-document.getElementById("login-btn").addEventListener("click", async () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+const menuContainer = document.getElementById('menu-container');
 
-  const res = await fetch("/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password })
-  });
-
-  const data = await res.json();
-  const msg = document.getElementById("login-msg");
-  if (res.ok) {
-    token = data.token;
-    msg.textContent = "Connecté !";
-    loadMenu();
-  } else {
-    msg.textContent = data.message;
-  }
-});
-
-// Charger le menu
-async function loadMenu() {
-  const res = await fetch("/menu", { headers: { "Authorization": "Bearer " + token } });
-  const menu = await res.json();
-
-  document.getElementById("login-section").style.display = "none";
-  const menuSection = document.getElementById("menu-section");
-  menuSection.style.display = "block";
-
-  const ul = document.getElementById("menu-list");
-  ul.innerHTML = "";
-  menu.forEach(p => {
-    const li = document.createElement("li");
-    li.textContent = `${p.nom} - ${p.prix} €`;
-    const btn = document.createElement("button");
-    btn.textContent = "Ajouter au panier";
-    btn.addEventListener("click", () => addToCart(p.id, 1));
-    li.appendChild(btn);
-    ul.appendChild(li);
-  });
-  document.getElementById("cart-section").style.display = "block";
+// Fonction pour calculer le prix selon l'heure
+function getPrix(item) {
+  const now = new Date();
+  const hours = now.getHours();
+  // Exemple pour plat du jour et plats après 17h
+  if(item.prix_apres_17h && hours >= 17) return item.prix_apres_17h;
+  if(item.prix_midi && hours >= 9 && hours < 15) return item.prix_midi;
+  if(item.prix_soir && hours >= 17 && hours < 24) return item.prix_soir;
+  if(item.prix_happyhour && hours >= 17 && hours < 24) return item.prix_happyhour;
+  return item.prix || 0;
 }
 
-// Ajouter au panier
-async function addToCart(produitId, quantite) {
-  const res = await fetch("/add-to-cart", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
-    body: JSON.stringify({ produitId, quantite })
+function afficherMenu() {
+  menuContainer.innerHTML = '';
+  menuData.plats.forEach(item => {
+    const div = document.createElement('div');
+    div.classList.add('menu-item');
+    div.innerHTML = `<h3>${item.nom}</h3>
+                     <p>Prix: ${getPrix(item)} €</p>`;
+    menuContainer.appendChild(div);
   });
-  const data = await res.json();
-  updateCartList(data.ventes);
-}
 
-// Afficher panier
-function updateCartList(ventes) {
-  cart = ventes;
-  const ul = document.getElementById("cart-list");
-  ul.innerHTML = "";
-  cart.forEach(v => {
-    const li = document.createElement("li");
-    li.textContent = `${v.nom} x${v.quantite} - ${v.prix} €`;
-    ul.appendChild(li);
+  menuData.desserts.forEach(item => {
+    const div = document.createElement('div');
+    div.classList.add('menu-item');
+    div.innerHTML = `<h3>${item.nom}</h3>
+                     <p>Prix: ${getPrix(item)} €</p>`;
+    menuContainer.appendChild(div);
+  });
+
+  menuData.boissons.forEach(item => {
+    const div = document.createElement('div');
+    div.classList.add('menu-item');
+    div.innerHTML = `<h3>${item.nom}</h3>
+                     <p>Prix: ${getPrix(item)} €</p>
+                     ${item.mention ? `<p>${item.mention}</p>` : ''}`;
+    menuContainer.appendChild(div);
   });
 }
 
-// Voir ventes
-document.getElementById("view-sales-btn").addEventListener("click", async () => {
-  const res = await fetch("/ventes", { headers: { "Authorization": "Bearer " + token } });
-  const ventes = await res.json();
-  const ul = document.getElementById("sales-list");
-  ul.innerHTML = "";
-  ventes.forEach(v => {
-    const li = document.createElement("li");
-    li.textContent = `${v.nom} x${v.quantite} - ${v.prix} €`;
-    ul.appendChild(li);
-  });
-});
+afficherMenu();
+setInterval(afficherMenu, 60000); // Mise à jour toutes les minutes

@@ -2,60 +2,28 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brasserie BW</title>
-  <link rel="icon" href="images/k7f6.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <img src="images/logo.png" alt="BW Logo">
-    </div>
-    <ul class="menu">
-      <li><a href="#accueil">ACCUEIL</a></li>
-      <li><a href="#menu">MENU</a></li>
-      <li><a href="#reservation">RESERVATION</a></li>
-      <li><a href="#galerie">GALERIE</a></li>
-      <li><a href="#events">AGENDA</a></li>
-      <li><a href="#contact">CONTACT</a></li>
+  <nav>
+    <ul>
+      <li><a id="nav-home" href="index.html">ACCUEIL</a></li>
+      <li><a id="nav-menu" href="menu.html">MENU</a></li>
+      <li><a id="nav-soirees" href="soirees.html">SOIRÉES</a></li>
+      <li><a id="nav-gallery" href="galerie.html">GALERIE</a></li>
+      <li><a id="nav-contact" href="connexion.html">CONNEXION</a></li>
     </ul>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Brasserie BW</h1>
-    <div id="datetime"></div>
-    <div id="closed-message"></div>
-
-    <div class="plat-du-jour">
-      <a href="#menu" class="plat-button">
-        <strong>PLAT DU JOUR</strong><br>
-        À <br>
-        12,90 €<br>
-        Du lundi au jeudi midi
-      </a>
+    <div class="lang-switcher">
+      <img src="images/fr.png" onclick="setLanguage('fr')" alt="Français">
+      <img src="images/en.png" onclick="setLanguage('en')" alt="English">
     </div>
-  </section>
-
-  <script>
-    // Affichage de la date et l'heure
-    function updateDateTime() {
-      const now = new Date();
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      const date = now.toLocaleDateString('fr-FR', options);
-      const time = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-      document.getElementById('datetime').innerHTML = `${date} – ${time}`;
-
-      // Message si la brasserie est fermée (ex: après 22h ou avant 8h)
-      const hour = now.getHours();
-      const closed = hour < 8 || hour >= 22;
-      document.getElementById('closed-message').innerHTML = closed ? "⛔ La brasserie est actuellement fermée." : "";
-    }
-
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-  </script>
+  </nav>
+  <main>
+    <h1 id="hero-title">Brasserie BW</h1>
+    <p id="hero-datetime">DATE – HEURE</p>
+  </main>
+  <script src="lang.js"></script>
 </body>
 </html>

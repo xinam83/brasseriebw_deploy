@@ -1,0 +1,9 @@
+# Fichiers système
+*.ini
+*.log
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dossiers système potentiels
+__MACOSX/

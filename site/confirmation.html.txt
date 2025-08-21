@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Confirmation</title></head>
+<body>
+  <h2>Merci pour votre commande !</h2>
+  <p>Un email de confirmation vous a été envoyé.</p>
+  <button onclick="window.print()">🖨️ Imprimer</button>
+</body>
+</html>

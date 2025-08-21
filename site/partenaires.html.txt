@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Partenaires</title></head>
+<body>
+  <h2>Nos partenaires</h2>
+  <div class="partenaire">
+    <img src="images/partenaire1.jpg" alt="Partenaire 1">
+    <p>Nom du partenaire</p>
+    <p>Description courte</p>
+    <a href="https://site-partenaire.fr">Voir le site</a>
+  </div>
+</body>
+</html>

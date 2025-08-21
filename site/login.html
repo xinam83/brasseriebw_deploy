@@ -1,36 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Connexion Client</title>
-</head>
+<head><meta charset="UTF-8"><title>Connexion</title></head>
 <body>
-  <h1>Connexion</h1>
-  <form id="loginForm">
-    <input type="text" id="username" placeholder="Nom utilisateur" required><br>
-    <input type="password" id="password" placeholder="Mot de passe" required><br>
+  <h2>Connexion</h2>
+  <form action="login.php" method="POST">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Mot de passe" required>
     <button type="submit">Se connecter</button>
   </form>
-  <a href="register.html">Créer un compte</a>
-
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", async e => {
-      e.preventDefault();
-      const res = await fetch("/login", {
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({
-          username: document.getElementById("username").value,
-          password: document.getElementById("password").value
-        })
-      });
-      const data = await res.json();
-      if(data.success){
-        alert("Connexion réussie !");
-      } else {
-        alert(data.message);
-      }
-    });
-  </script>
+  <p><a href="register.html">Créer un compte</a></p>
 </body>
 </html>
