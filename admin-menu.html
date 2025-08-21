@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Menu</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .menu-item { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+    label { display: inline-block; width: 150px; }
+    input[type="number"] { width: 80px; }
+  </style>
+</head>
+<body>
+  <h1>Administration du Menu</h1>
+  <div id="menu-admin"></div>
+
+  <script type="module">
+    import menuData from './menu.json' assert { type: 'json' };
+
+    const menuAdminContainer = document.getElementById('menu-admin');
+
+    function afficherMenuAdmin() {
+      menuAdminContainer.innerHTML = '';
+      const allItems = [...menuData.plats, ...menuData.desserts, ...menuData.boissons];
+
+      allItems.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.classList.add('menu-item');
+        div.innerHTML = `
+          <h3>${item.nom}</h3>
+          <label>Prix midi:</label>
+          <input type="number" value="${item.prix_midi || item.prix || ''}" onchange="changerPrix(${index}, 'midi', this.value)"><br>
+          <label>Prix soir:</label>
+          <input type="number" value="${item.prix_soir || item.prix || ''}" onchange="changerPrix(${index}, 'soir', this.value)"><br>
+          <label>Prix happy hour:</label>
+          <input type="number" value="${item.prix_happyhour || item.prix || ''}" onchange="changerPrix(${index}, 'happyhour', this.value)"><br>
+          <label>Prix soirée spéciale:</label>
+          <input type="number" value="${item.prix_soiree || item.prix || ''}" onchange="changerPrix(${index}, 'soiree', this.value)"><br>
+          <label>Activer livraison:</label>
+          <input type="checkbox" ${item.disponibilite?.includes('livraison') ? 'checked' : ''} onchange="toggleOption(${index}, 'livraison', this.checked)"><br>
+          <label>Activer C&C:</label>
+          <input type="checkbox" ${item.disponibilite?.includes('clic_collect') ? 'checked' : ''} onchange="toggleOption(${index}, 'clic_collect', this.checked)"><br>
+          <label>Activer sur place:</label>
+          <input type="checkbox" ${item.disponibilite?.includes('sur_place') ? 'checked' : ''} onchange="toggleOption(${index}, 'sur_place', this.checked)"><br>
+          <label>Rupture de stock:</label>
+          <input type="checkbox" ${item.rupture ? 'checked' : ''} onchange="toggleRupture(${index}, this.checked)">
+        `;
+        menuAdminContainer.appendChild(div);
+      });
+    }
+
+    window.changerPrix = (index, type, value) => {
+      const allItems = [...menuData.plats, ...menuData.desserts, ...menuData.boissons];
+      const item = allItems[index];
+      switch(type) {
+        case 'midi': item.prix_midi = parseFloat(value); break;
+        case 'soir': item.prix_soir = parseFloat(value); break;
+        case 'happyhour': item.prix_happyhour = parseFloat(value); break;
+        case 'soiree': item.prix_soiree = parseFloat(value); break;
+      }
+      sauvegarderModifs(allItems);
+    };
+
+    window.toggleOption = (index, option, checked) => {
+      const allItems = [...menuData.plats, ...menuData.desserts, ...menuData.boissons];
+      const item = allItems[index];
+      if (!item.disponibilite) item.disponibilite = [];
+      if (checked && !item.disponibilite.includes(option)) item.disponibilite.push(option);
+      if (!checked) item.disponibilite = item.disponibilite.filter(x => x !== option);
+      sauvegarderModifs(allItems);
+    };
+
+    window.toggleRupture = (index, checked) => {
+      const allItems = [...menuData.plats, ...menuData.desserts, ...menuData.boissons];
+      const item = allItems[index];
+      item.rupture = checked;
+      sauvegarderModifs(allItems);
+    };
+
+    function sauvegarderModifs(allItems) {
+      const nouvellesDonnees = {
+        plats: menuData.plats,
+        desserts: menuData.desserts,
+        boissons: menuData.boissons
+      };
+      localStorage.setItem('menuData', JSON.stringify(nouvellesDonnees));
+    }
+
+    afficherMenuAdmin();
+  </script>
+</body>
+</html>

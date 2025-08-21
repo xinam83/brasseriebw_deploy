@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "hosting": {
     "public": "deploy-ready",
@@ -8,3 +9,15 @@
     ]
   }
 }
+=======
+{
+  "hosting": {
+    "public": "site",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
+>>>>>>> 7d948e062535f1278e321054cc1455b5d72c4924
