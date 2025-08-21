@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Brasserie BW</title>
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="site/styles/style.css">
 </head>
 <body>
   <header>
@@ -22,7 +22,8 @@
     <p>&copy; 2025 Brasserie BW</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="site/js/main.js"></script>
 </body>
 </html>
+
 
