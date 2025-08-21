@@ -1,18 +1,16 @@
 import express from "express";
-import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "motdepassepardefaut"; // Remplace par la variable Render
 
-// Mot de passe admin
-const ADMIN_PASSWORD = "TonMotDePasseIci"; // ⚠️ change-le !
-
-// Middleware pour parser JSON et formulaires
+// Middleware pour parser JSON et formulaire
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -26,19 +24,22 @@ app.post("/update-menu", (req, res) => {
     path.join(__dirname, "menu.json"),
     JSON.stringify(newMenu, null, 2),
     (err) => {
-      if (err) return res.status(500).json({ message: "Erreur lors de la sauvegarde." });
+      if (err) {
+        console.error("Erreur d'écriture:", err);
+        return res.status(500).json({ message: "Erreur lors de la sauvegarde." });
+      }
       res.json({ message: "Menu mis à jour avec succès !" });
     }
   );
 });
 
-// Endpoint pour la connexion admin
+// Endpoint de login admin
 app.post("/admin/login", (req, res) => {
-  const { password } = req.body;
+  const password = req.body.password;
   if (password === ADMIN_PASSWORD) {
-    res.redirect("/admin.html");
+    return res.redirect("/admin.html");
   } else {
-    res.send("Mot de passe incorrect !");
+    return res.send("Mot de passe incorrect !");
   }
 });
 
