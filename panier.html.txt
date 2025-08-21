@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Panier</title></head>
+<body>
+  <h2>Mon panier</h2>
+  <div id="panier"></div>
+  <p>Total : <span id="total">0.00 €</span></p>
+  <form action="valider_commande.php" method="POST">
+    <select name="mode">
+      <option value="surPlace">Sur place</option>
+      <option value="livraison">Livraison</option>
+      <option value="clickCollect">Click & Collect</option>
+    </select>
+    <button type="submit">Valider la commande</button>
+  </form>
+</body>
+</html>

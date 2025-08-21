@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Brasserie BW</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f8f8f8; }
+    h1 { color: #b33f3f; }
+    form { background: white; padding: 20px; border-radius: 8px; max-width: 500px; }
+    label { display: block; margin-top: 10px; }
+    input, textarea { width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc; }
+    button { margin-top: 15px; padding: 10px 20px; background-color: #b33f3f; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background-color: #8c2e2e; }
+    #confirmation { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h1>Contactez-nous</h1>
+
+  <form id="form-contact">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" required>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" required>
+
+    <label for="message">Message :</label>
+    <textarea id="message" required></textarea>
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div id="confirmation"></div>
+
+  <script type="module">
+    // Import des fonctions Firebase nécessaires
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+    // Ta configuration Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAtkE9XW7umb8VA5a1xrg-o9DfH5Hs63f4",
+      authDomain: "brasserie-bw-4cdb0.firebaseapp.com",
+      projectId: "brasserie-bw-4cdb0",
+      storageBucket: "brasserie-bw-4cdb0.firebasestorage.app",
+      messagingSenderId: "42923892498",
+      appId: "1:42923892498:web:086c4fec5353a9c862ddcb",
+      measurementId: "G-YLEPB2842D"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const form = document.getElementById("form-contact");
+    const confirmation = document.getElementById("confirmation");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const nom = document.getElementById("nom").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!nom || !email || !message) {
+        alert("Merci de remplir tous les champs.");
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Merci d'entrer un email valide.");
+        return;
+      }
+
+      try {
+        await addDoc(collection(db, "messages"), {
+          nom,
+          email,
+          message,
+          date: serverTimestamp()
+        });
+
+        confirmation.textContent = "Merci, votre message a été envoyé !";
+        confirmation.style.color = "green";
+        form.reset();
+      } catch (error) {
+        console.error("Erreur lors de l'envoi : ", error);
+        confirmation.textContent = "Une erreur est survenue. Merci de réessayer.";
+        confirmation.style.color = "red";
+      }
+    });
+  </script>
+
+</body>
+</html>

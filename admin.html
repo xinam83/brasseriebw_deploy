@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Admin</title></head>
+<body>
+  <h2>Panneau Admin</h2>
+
+  <section>
+    <h3>Ajouter un plat</h3>
+    <form action="ajouter_produit.php" method="POST" enctype="multipart/form-data">
+      <input type="text" name="nom" placeholder="Nom du plat">
+      <textarea name="description" placeholder="Description"></textarea>
+      <input type="number" name="prix_midi" placeholder="Prix midi">
+      <input type="number" name="prix_soir" placeholder="Prix soir">
+      <input type="file" name="photo">
+      <select name="categorie">
+        <option value="pizza_rouge">Pizza base rouge</option>
+        <option value="dessert">Dessert</option>
+        ...
+      </select>
+      <label><input type="checkbox" name="livraison"> Livraison</label>
+      <label><input type="checkbox" name="rupture"> Rupture</label>
+      <button type="submit">Ajouter</button>
+    </form>
+  </section>
+
+  <section>
+    <h3>Newsletter</h3>
+    <form action="envoyer_newsletter.php" method="POST">
+      <input type="text" name="titre" placeholder="Titre">
+      <textarea name="contenu" placeholder="Contenu"></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+</body>
+</html>
