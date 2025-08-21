@@ -2,20 +2,35 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connexion Admin</title>
-  <style>
-    body { font-family: Arial; text-align: center; margin-top: 100px; }
-    input { padding: 10px; margin: 5px; width: 200px; }
-    button { padding: 10px 20px; }
-  </style>
+  <title>Connexion Client</title>
 </head>
 <body>
-  <h1>Connexion Admin</h1>
-  <form action="/admin/login" method="POST">
-    <input type="password" name="password" placeholder="Mot de passe" required>
-    <br>
+  <h1>Connexion</h1>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="Nom utilisateur" required><br>
+    <input type="password" id="password" placeholder="Mot de passe" required><br>
     <button type="submit">Se connecter</button>
   </form>
+  <a href="register.html">Créer un compte</a>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const res = await fetch("/login", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value
+        })
+      });
+      const data = await res.json();
+      if(data.success){
+        alert("Connexion réussie !");
+      } else {
+        alert(data.message);
+      }
+    });
+  </script>
 </body>
 </html>

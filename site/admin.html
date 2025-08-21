@@ -5,32 +5,85 @@
   <title>Admin - Brasserie BW</title>
 </head>
 <body>
-  <h1>Admin - Menu</h1>
-  <form id="menuForm">
-    <textarea id="menuData" rows="20" cols="50"></textarea><br>
-    <button type="submit">Sauvegarder</button>
+  <h1>Admin</h1>
+
+  <h2>Connexion Admin</h2>
+  <form id="adminLoginForm">
+    <input type="password" id="adminPassword" placeholder="Mot de passe" required>
+    <button type="submit">Se connecter</button>
   </form>
 
+  <div id="adminPanel" style="display:none;">
+    <h2>Modifier le menu</h2>
+    <form id="menuForm">
+      <textarea id="menuData" rows="10" cols="50"></textarea><br>
+      <button type="submit">Sauvegarder Menu</button>
+    </form>
+
+    <h2>Modifier la galerie</h2>
+    <form id="galleryForm">
+      <textarea id="galleryData" rows="10" cols="50"></textarea><br>
+      <button type="submit">Sauvegarder Galerie</button>
+    </form>
+  </div>
+
   <script>
-    async function loadMenu() {
+    const adminLoginForm = document.getElementById("adminLoginForm");
+    const adminPanel = document.getElementById("adminPanel");
+
+    adminLoginForm.addEventListener("submit", async e => {
+      e.preventDefault();
+      const res = await fetch("/admin/login", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ password: document.getElementById("adminPassword").value })
+      });
+      const data = await res.json();
+      if(data.success){
+        adminLoginForm.style.display = "none";
+        adminPanel.style.display = "block";
+        loadMenu();
+        loadGallery();
+      } else {
+        alert("Mot de passe incorrect");
+      }
+    });
+
+    async function loadMenu(){
       const res = await fetch("/menu.json");
       const data = await res.json();
       document.getElementById("menuData").value = JSON.stringify(data, null, 2);
     }
 
-    document.getElementById("menuForm").addEventListener("submit", async (e) => {
+    document.getElementById("menuForm").addEventListener("submit", async e => {
       e.preventDefault();
       const newMenu = JSON.parse(document.getElementById("menuData").value);
       const res = await fetch("/update-menu", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method:"POST",
+        headers: {"Content-Type":"application/json"},
         body: JSON.stringify(newMenu)
       });
       const result = await res.json();
       alert(result.message);
     });
 
-    loadMenu();
+    async function loadGallery(){
+      const res = await fetch("/gallery.json");
+      const data = await res.json();
+      document.getElementById("galleryData").value = JSON.stringify(data, null, 2);
+    }
+
+    document.getElementById("galleryForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const newGallery = JSON.parse(document.getElementById("galleryData").value);
+      const res = await fetch("/update-gallery", {
+        method:"POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(newGallery)
+      });
+      const result = await res.json();
+      alert(result.message);
+    });
   </script>
 </body>
 </html>
