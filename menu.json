@@ -1,26 +1,7 @@
 {
-  "entrees": [
-    { "nom": "Salade de chèvre chaud", "prix": "7.50" },
-    { "nom": "Soupe à l’oignon gratinée", "prix": "6.00" },
-    { "nom": "Planche de charcuterie", "prix": "8.50" }
-  ],
   "plats": [
-    { "nom": "Lasagnes maison", "prix": "12.50" },
-    { "nom": "Entrecôte grillée (300g)", "prix": "18.00" },
-    { "nom": "Poulet rôti fermier", "prix": "14.00" },
-    { "nom": "Burger BW + frites maison", "prix": "13.50" },
-    { "nom": "Poisson du jour", "prix": "15.00" }
-  ],
-  "desserts": [
-    { "nom": "Mousse au chocolat", "prix": "5.00" },
-    { "nom": "Crème brûlée", "prix": "5.50" },
-    { "nom": "Tarte tatin", "prix": "6.00" }
-  ],
-  "boissons": [
-    { "nom": "Café", "prix": "2.00" },
-    { "nom": "Thé", "prix": "2.50" },
-    { "nom": "Bière artisanale (50cl)", "prix": "5.00" },
-    { "nom": "Verre de vin rouge", "prix": "4.50" },
-    { "nom": "Eau minérale (50cl)", "prix": "1.50" }
+    { "nom": "Bière Blonde", "prix": 5 },
+    { "nom": "Bière Brune", "prix": 5.5 },
+    { "nom": "Bière Blanche", "prix": 5 }
   ]
 }
