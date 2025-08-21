@@ -2,47 +2,39 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Brasserie BW</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="manifest" href="manifest.json">
+  <title>Bienvenue chez BW</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="images/logo.png" alt="Logo Brasserie BW">
-    </div>
     <nav>
-      <ul class="nav-menu">
-        <li><a href="index.html">ACCUEIL</a></li>
-        <li><a href="menu.html">MENU</a></li>
-        <li><a href="soirees.html">SOIRÉES</a></li>
-        <li><a href="galerie.html">GALERIE</a></li>
-        <li><a href="login.html">CONNEXION</a></li>
-      </ul>
-      <div class="lang-switcher">
-        <img src="images/fr.png" onclick="setLanguage('fr')" alt="Français">
-        <img src="images/en.png" onclick="setLanguage('en')" alt="English">
-      </div>
+      <a href="#">Accueil</a>
+      <a href="#">Menu</a>
+      <a href="#">Contact</a>
     </nav>
+    <div id="langues">
+      <img src="../images/fr.png" alt="Français">
+      <img src="../images/en.png" alt="English">
+      <img src="../images/es.png" alt="Español">
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <img src="images/terrasse.jpg" alt="Terrasse Brasserie BW" class="hero-img">
-      <h1 id="hero-title">Brasserie BW</h1>
-      <p id="hero-datetime">DATE – HEURE</p>
-      <div class="plat">
-        <h2>Plat du jour</h2>
-        <p>À 12,90 € – Du lundi au jeudi midi</p>
-      </div>
-    </section>
-  </main>
+  <img id="logo" src="../images/logo.png" alt="Logo BW">
 
-  <footer>
-    <p>&copy; 2025 Brasserie BW – Tous droits réservés</p>
-  </footer>
+  <div id="plat-du-jour">Plat du jour : Magret de canard 🍽️</div>
 
-  <script src="js/lang.js"></script>
+  <div id="horloge"></div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const date = now.toLocaleDateString('fr-FR', options);
+      const time = now.toLocaleTimeString('fr-FR');
+      document.getElementById('horloge').textContent = `${date} - ${time}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 </body>
 </html>
