@@ -1,8 +1,8 @@
-/* Appliquer le fond d'écran */
+/* Fond d'écran */
 body {
   margin: 0;
   font-family: sans-serif;
-  background-image: url('../images/terrasse.jpg');
+  background-image: url('../images/terrasse.jpeg');
   background-size: cover;
   background-position: center;
   color: white;
@@ -11,7 +11,7 @@ body {
   z-index: 1;
 }
 
-/* Couche sombre pour améliorer la lisibilité */
+/* Couche sombre pour lisibilité */
 body::before {
   content: "";
   position: fixed;
