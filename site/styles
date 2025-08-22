@@ -1,29 +1,69 @@
+/* Appliquer le fond d'écran */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fdfdfd;
   margin: 0;
-  padding: 0;
-  color: #333;
-}
-
-header {
-  background-color: #800000;
+  font-family: sans-serif;
+  background-image: url('../images/terrasse.jpg');
+  background-size: cover;
+  background-position: center;
   color: white;
-  padding: 20px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-header img {
-  max-height: 80px;
+/* Couche sombre pour améliorer la lisibilité */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
 }
 
-main {
+/* En-tête avec menu et drapeaux */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
 }
 
-footer {
-  background-color: #eee;
-  text-align: center;
-  padding: 10px;
-  font-size: 0.9em;
+/* Liens du menu */
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* Drapeaux de langue */
+#langues img {
+  width: 40px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/* Logo centré */
+#logo {
+  margin: 50px auto;
+  width: 200px;
+  display: block;
+}
+
+/* Plat du jour mis en valeur */
+#plat-du-jour {
+  font-size: 2em;
+  margin-top: 30px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Horloge dynamique */
+#horloge {
+  margin-top: 20px;
+  font-size: 1.2em;
 }
