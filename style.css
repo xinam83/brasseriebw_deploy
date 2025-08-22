@@ -1,30 +1,69 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Brasserie BW</title>
-  <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-  <header>
-    <img src="images/logo.png" alt="Logo Brasserie BW">
-    <h1>Brasserie BW</h1>
-  </header>
+/* Appliquer le fond d'écran */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-image: url('../images/terrasse.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
 
-  <main>
-    <section>
-      <h2>Plat du jour à 12,90 €</h2>
-      <p>Du lundi au jeudi midi</p>
-    </section>
-  </main>
+/* Couche sombre pour améliorer la lisibilité */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
 
-  <footer>
-    <p>&copy; 2025 Brasserie BW</p>
-  </footer>
+/* En-tête avec menu et drapeaux */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
 
-  <script src="js/main.js"></script>
-</body>
-</html>
+/* Liens du menu */
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+}
 
+/* Drapeaux de langue */
+#langues img {
+  width: 40px;
+  margin: 0 5px;
+  cursor: pointer;
+}
 
+/* Logo centré */
+#logo {
+  margin: 50px auto;
+  width: 200px;
+  display: block;
+}
 
+/* Plat du jour mis en valeur */
+#plat-du-jour {
+  font-size: 2em;
+  margin-top: 30px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Horloge dynamique */
+#horloge {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
